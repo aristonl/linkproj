@@ -1,28 +1,36 @@
-#include <link>
+#include <Link.hpp>
 #include <iostream>
+#include <fstream>
 
 int main() {
-	Link http(3000);
+	Link::Server server;
+	server.SetPort(3000);
 
   	// 404 Page
-  	http.Error(404, [](Request* req, Response* res) {
-  		res->SetHTTP("HTTP/1.1 404 Not Found\r\n\r\n404 Not Found");
+  	server.Error(404, [](Link::Request* req, Link::Response* res) {
+  		res->SetStatus(404)->SetBody("404 Not Found");
 	});
-  	http.Default([](Request* req, Response* res) {
-    	res->Error(404);
-  	});
   
   	// Landing Page
-  	http.Get("/", [](Request* req, Response* res) {
+  	server.Get("/", [](Link::Request* req, Link::Response* res) {
     	res->SetHeader("Content-Type", "text/html; charset=UTF-8");
-    	res->SendFile("www/index.html");
+		std::ifstream file("www/index.html");
+		std::string content((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+		res->SetBody(content);
   	});
 
-  	http.Get("/css/index.css", [](Request* req, Response* res) {
-   	 res->SetHeader("Content-Type", "text/css; charset=UTF-8");
-  	  res->SendFile("www/css/index.css");
+  	server.Get("/css/index.css", [](Link::Request* req, Link::Response* res) {
+   		res->SetHeader("Content-Type", "text/css; charset=UTF-8");
+		std::ifstream file("www/index.html");
+		std::string content((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+		res->SetBody(content);
   	});
+
+	// Generate cert and key first
+	// server.EnableSSL("cert.pem", "key.pem");
+
+	server.EnableMultiThreaded();
 
 	std::cout << "website started on port 3000." << std::endl;
-  	http.Start();
+  	server.Start();
 }
