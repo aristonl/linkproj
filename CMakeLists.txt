@@ -4,6 +4,8 @@ project(website C CXX)
 
 set(cpp_src src/main.cpp)
 
+link_directories(/usr/lib)
+
 add_executable(website ${cpp_src})
 set(CMAKE_CXX_FLAGS "-fpic -pthread")
 add_link_options(-pthread)
