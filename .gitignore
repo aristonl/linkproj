@@ -12,4 +12,9 @@ cmake_install.cmake
 # website binary
 website
 
+# patch files
+patches/
+patch/
+*.patch
+
 .DS_Store
