@@ -29,7 +29,7 @@ int main() {
 	// Generate cert and key first
 	// server.EnableSSL("cert.pem", "key.pem");
 
-	server.EnableMultiThreaded();
+	server.EnableMultiThreading();
 
 	std::cout << "website started on port 3000." << std::endl;
   	server.Start();
