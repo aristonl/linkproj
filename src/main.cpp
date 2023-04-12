@@ -14,14 +14,14 @@ int main() {
   	// Landing Page
   	server.Get("/", [](Link::Request* req, Link::Response* res) {
     	res->SetHeader("Content-Type", "text/html; charset=UTF-8");
-		std::ifstream file("www/index.html");
+		std::ifstream file("../www/index.html");
 		std::string content((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
 		res->SetBody(content);
   	});
 
   	server.Get("/css/index.css", [](Link::Request* req, Link::Response* res) {
    		res->SetHeader("Content-Type", "text/css; charset=UTF-8");
-		std::ifstream file("www/index.html");
+		std::ifstream file("www/css/index.css");
 		std::string content((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
 		res->SetBody(content);
   	});
@@ -29,7 +29,7 @@ int main() {
 	// Generate cert and key first
 	// server.EnableSSL("cert.pem", "key.pem");
 
-	server.EnableMultiThreaded();
+	server.EnableMultiThreading();
 
 	std::cout << "website started on port 3000." << std::endl;
   	server.Start();
