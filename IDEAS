@@ -1,0 +1,9 @@
+o Turn linkproj into link-httpd
+
+	We could just turn linkproj into a Apache alternative
+	which doesn't seem too hard.
+
+o Bring back 'make'
+
+	There's certain systems that just hate CMake so bringing
+	back 'make' as an alternative build system will work.

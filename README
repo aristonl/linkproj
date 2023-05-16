@@ -1,5 +1,9 @@
 					
-                     Link Website Template
+		    Link Website Template
+                    =====================
+
+              Copyright (c) 2023 Ariston Lorenzo.
+       'Link' Copyright (c) 2021, 2022, 2023 N11 Software
 
 This is a basic template for anyone needing to quickly setup a 
 new website using Link (https://github.com/N11Software/Link)
@@ -7,12 +11,12 @@ as a web library.
 
 
 BUILDING AND RUNNING
+--------------------
 Make sure you have Link installed on your system before using
-this. You will also need CMake and Ninja on your system. Make
-will *probably* work fine but this isn't tested. To build the
-site, run
+this. You will also need CMake on your system. Make will *probably* 
+work fine but this isn't tested. To build the site, run
 
-	$ cmake -GNinja .
+	$ cmake .
 	$ ninja
 
 This will create the executable 'website' which you can run
@@ -22,9 +26,30 @@ with
 
 which hosts the site at port 3000.
 
-	NOTE: Link doesn't work well natively on Windows and
-	will have to run via WSL to work correctly.
+CONTACTS
+--------
+
+o If you want to stay up-to-date with Link and 'linkproj',
+  join the link-announce mailing list on SourceHut:
+  <~aristonl/link-announce@lists.sr.ht>
+
+o Any patches should be sent to link-devel:
+  <~aristonl/link-devel@lists.sr.ht>
+
+o User discussion/help and general bug reports can be sent
+  to the link-discuss mailing list:
+  <~aristonl/link-discuss@lists.sr.ht>
+
+o Security reports should be sent to link-security. This is
+  a private mailing list and you cannot subscribe to this list:
+  <~aristonl/link-security@lists.sr.ht>
 
 COPYRIGHT
-Link and 'linkproj' is licensed under the BSD 3 Clause license.
-Please see COPYRIGHT for more information.
+---------
+Link and 'linkproj' is open source and free software and can be
+distributed under the terms of the BSD 3-Clause License as published
+with the distribution of the software.
+
+Link and 'linkproj' are distributed with NO WARRANTY whatsoever,
+including the implied warranty of MERCHANTABILITY and FITNESS FOR
+A PARTICULAR PURPOSE.
